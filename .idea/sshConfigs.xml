@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="anvil.works" id="1281fb88-669f-4f62-b633-cdc33704eadb" keyPath="$USER_HOME$/.ssh/id_rsa" port="2222" nameFormat="DESCRIPTIVE" username="al@mastercode.io" useOpenSSHConfig="true" />
+      <sshConfig authType="PASSWORD" host="anvil.works" id="596ce0c8-a510-4b6b-a0db-289e29d7048e" port="2222" nameFormat="DESCRIPTIVE" username="al@mastercode.io" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>
