@@ -1,3 +1,4 @@
+import anvil.server
 # Static and dynamic enumerations
 from .lib import *
 from ..app.lib import *

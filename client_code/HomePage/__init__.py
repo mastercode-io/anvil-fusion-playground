@@ -1,4 +1,4 @@
-from ._anvil_designer import MainPageTemplate
+from ._anvil_designer import HomePageTemplate
 from anvil import *
 import anvil.server
 import anvil.js
@@ -10,7 +10,7 @@ from ... import Forms
 from ... import Views
 
 
-class MainPage(MainPageTemplate):
+class HomePage(HomePageTemplate):
     def __init__(self, **properties):
         app.session.init_user_session()
 

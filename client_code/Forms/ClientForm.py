@@ -1,3 +1,4 @@
+import anvil.server
 from .BaseForm import BaseForm, POPUP_WIDTH_COL3
 from .BaseInput import *
 from ..orm_client.model import Contact, Entity
