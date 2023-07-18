@@ -1,13 +1,11 @@
 from ._anvil_designer import HomePageTemplate
-from anvil import *
-import anvil.server
-import anvil.js
+import anvil
 from anvil.js.window import jQuery, ej
 
 import navigation as nav
-from ... import app
-from ... import Forms
-from ... import Views
+from .. import app_client
+from .. import Forms
+from .. import Views
 
 
 class HomePage(HomePageTemplate):
