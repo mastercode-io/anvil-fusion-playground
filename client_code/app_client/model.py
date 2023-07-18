@@ -1,9 +1,9 @@
 import anvil.server
-from .particles import model_type, Attribute, Relationship, Computed
-from . import particles as orm
-from . import enumerations as enums
+from AnvilFusion.orm_client.particles import model_type, Attribute, Relationship, Computed
+from AnvilFusion.orm_client import types
 
-MODEL_MODULE_NAME = 'orm_client.model'
+
+MODULE_PATH = __file__
 
 
 # --------------------------------
@@ -11,67 +11,67 @@ MODEL_MODULE_NAME = 'orm_client.model'
 # --------------------------------
 @model_type
 class Tenant:
-    model_type = enums.ModelTypes.SYSTEM
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    model_type = types.ModelTypes.SYSTEM
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class Users:
-    model_type = enums.ModelTypes.SYSTEM
-    email = Attribute(field_type=enums.FieldTypes.EMAIL)
-    enabled = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    last_login = Attribute(field_type=enums.FieldTypes.DATETIME)
-    password_hash = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    n_password_failures = Attribute(field_type=enums.FieldTypes.NUMBER)
-    confirmed_email = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    signed_up = Attribute(field_type=enums.FieldTypes.DATETIME)
+    model_type = types.ModelTypes.SYSTEM
+    email = Attribute(field_type=types.FieldTypes.EMAIL)
+    enabled = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    last_login = Attribute(field_type=types.FieldTypes.DATETIME)
+    password_hash = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    n_password_failures = Attribute(field_type=types.FieldTypes.NUMBER)
+    confirmed_email = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    signed_up = Attribute(field_type=types.FieldTypes.DATETIME)
 
 
 @model_type
 class UserProfile:
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    title = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    title = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class appAuditLog:
-    model_type = enums.ModelTypes.SYSTEM
-    table_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    record_uid = Attribute(field_type=enums.FieldTypes.UID)
-    action_type = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    action_time = Attribute(field_type=enums.FieldTypes.DATETIME)
-    action_by = Attribute(field_type=enums.FieldTypes.UID)
-    previous_state = Attribute(field_type=enums.FieldTypes.OBJECT)
-    new_state = Attribute(field_type=enums.FieldTypes.OBJECT)
+    model_type = types.ModelTypes.SYSTEM
+    table_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    record_uid = Attribute(field_type=types.FieldTypes.UID)
+    action_type = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    action_time = Attribute(field_type=types.FieldTypes.DATETIME)
+    action_by = Attribute(field_type=types.FieldTypes.UID)
+    previous_state = Attribute(field_type=types.FieldTypes.OBJECT)
+    new_state = Attribute(field_type=types.FieldTypes.OBJECT)
 
 
 @model_type
 class appErrorLog:
-    model_type = enums.ModelTypes.SYSTEM
-    component = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    action = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    error_message = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
-    error_time = Attribute(field_type=enums.FieldTypes.DATETIME)
-    user_uid = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    model_type = types.ModelTypes.SYSTEM
+    component = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    action = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    error_message = Attribute(field_type=types.FieldTypes.MULTI_LINE)
+    error_time = Attribute(field_type=types.FieldTypes.DATETIME)
+    user_uid = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class appGridViews:
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    config = Attribute(field_type=enums.FieldTypes.OBJECT)
-    permissions = Attribute(field_type=enums.FieldTypes.OBJECT)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    config = Attribute(field_type=types.FieldTypes.OBJECT)
+    permissions = Attribute(field_type=types.FieldTypes.OBJECT)
 
 
 @model_type
 class Files:
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    mime_type = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    size = Attribute(field_type=enums.FieldTypes.NUMBER)
-    meta_info = Attribute(field_type=enums.FieldTypes.OBJECT)
-    content = Attribute(field_type=enums.FieldTypes.MEDIA)
-    case_uid = Attribute(field_type=enums.FieldTypes.UID)
-    link_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    link_uid = Attribute(field_type=enums.FieldTypes.UID)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    mime_type = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    size = Attribute(field_type=types.FieldTypes.NUMBER)
+    meta_info = Attribute(field_type=types.FieldTypes.OBJECT)
+    content = Attribute(field_type=types.FieldTypes.MEDIA)
+    case_uid = Attribute(field_type=types.FieldTypes.UID)
+    link_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    link_uid = Attribute(field_type=types.FieldTypes.UID)
 
 
 # -------------------------
@@ -80,7 +80,7 @@ class Files:
 @model_type
 class Activity:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
@@ -88,51 +88,51 @@ class BankAccount:
     _title = 'account_type'
 
     account_type = Relationship('BankAccountType')
-    bank_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    routing_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    account_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    account_balance = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    payment_link = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    bank_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    routing_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    account_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    account_balance = Attribute(field_type=types.FieldTypes.CURRENCY)
+    payment_link = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     """Hidden Fields"""
-    fractional_routing_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    check_start_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    fractional_routing_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    check_start_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class BankAccountType:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class Branch:
     _title = 'name'
 
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    phone = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    email = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    address = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    phone = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    email = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    address = Attribute(field_type=types.FieldTypes.MULTI_LINE)
 
 
 @model_type
 class Case:
     _title = 'case_name'
 
-    case_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    case_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     assigned_attorneys = Relationship('Staff', with_many=True)
     practice_area = Relationship('PracticeArea')
     case_stage = Relationship('CaseStage')
     cause_of_action = Relationship('CauseOfAction', with_many=True)
-    close_date = Attribute(field_type=enums.FieldTypes.DATE)
+    close_date = Attribute(field_type=types.FieldTypes.DATE)
     """Hidden Fields (should be displayed on Case Dashboard - in order of Case Dashboard template - not the order listed below)"""
     case_status = Relationship('CaseStatus')
-    statute_of_limitations = Attribute(field_type=enums.FieldTypes.DATE)
+    statute_of_limitations = Attribute(field_type=types.FieldTypes.DATE)
     court = Relationship('Entity')
     department = Relationship('Contact')
-    case_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    incident_date = Attribute(field_type=enums.FieldTypes.DATE)
-    incident_location = Attribute(field_type=enums.FieldTypes.ADDRESS)
-    case_description = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
+    case_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    incident_date = Attribute(field_type=types.FieldTypes.DATE)
+    incident_location = Attribute(field_type=types.FieldTypes.ADDRESS)
+    case_description = Attribute(field_type=types.FieldTypes.MULTI_LINE)
     clients = Relationship('Client', with_many=True)
     contacts = Relationship('Contact', with_many=True)
     staff = Relationship('Staff', with_many=True)
@@ -140,25 +140,25 @@ class Case:
     lead = Relationship('Lead')
     # billing
     fee_type = Relationship('FeeType')
-    flat_fee_retainer = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    hourly_retainer = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    pre_litigation_rate = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    litigation_rate = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    trial_included = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    retainer_hours_limit = Attribute(field_type=enums.FieldTypes.NUMBER)
-    investigator = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    investigator_budget = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    record_seal_expungement = Attribute(field_type=enums.FieldTypes.BOOLEAN)
+    flat_fee_retainer = Attribute(field_type=types.FieldTypes.CURRENCY)
+    hourly_retainer = Attribute(field_type=types.FieldTypes.CURRENCY)
+    pre_litigation_rate = Attribute(field_type=types.FieldTypes.CURRENCY)
+    litigation_rate = Attribute(field_type=types.FieldTypes.CURRENCY)
+    trial_included = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    retainer_hours_limit = Attribute(field_type=types.FieldTypes.NUMBER)
+    investigator = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    investigator_budget = Attribute(field_type=types.FieldTypes.CURRENCY)
+    record_seal_expungement = Attribute(field_type=types.FieldTypes.BOOLEAN)
     # open date - date from created_time field
     """
   The fields below should be relational to Clients - in Creator this information gets populated based on the 
   Group selection of each contact. I don't think we need actual need the fields below - we just need to fetch
   the data to display on the case dashboard.
   """
-    # client_in_custody = Attribute(field_type=enums.FieldTypes.BOOLEAN)
+    # client_in_custody = Attribute(field_type=types.FieldTypes.BOOLEAN)
     # jail_prison = Relationship('Entity')
-    # inmate_id = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    # bail_status = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    # inmate_id = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    # bail_status = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
@@ -173,13 +173,13 @@ class CaseContact:
 @model_type
 class CaseStage:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class CaseStatus:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
@@ -187,21 +187,21 @@ class CauseOfAction:
     _title = 'cause_of_action'
 
     type_of_action = Relationship('TypeOfAction')
-    statute_id = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    cause_of_action = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    penalty = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
+    statute_id = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    cause_of_action = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    penalty = Attribute(field_type=types.FieldTypes.MULTI_LINE)
 
 
 @model_type
 class Check:
     _title = 'check_number'
 
-    check_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    date = Attribute(field_type=enums.FieldTypes.DATE)
+    check_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    date = Attribute(field_type=types.FieldTypes.DATE)
     payee = Relationship('Contact')
-    amount = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    memo = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
-    reference = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    amount = Attribute(field_type=types.FieldTypes.CURRENCY)
+    memo = Attribute(field_type=types.FieldTypes.MULTI_LINE)
+    reference = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     """Hidden Fields and or detail view"""
     bank_account = Relationship('BankAccount')
 
@@ -210,14 +210,14 @@ class Check:
 class Client:
     _title = 'client_name'
 
-    client_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    client_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     # need to display group as "Client" if all clients and contacts will be on same report
-    # email = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    # mobile_phone= Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    # work_phone = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    # email = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    # mobile_phone= Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    # work_phone = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     # cases = Relationship('Case')
     """Hidden Fields and or detail view"""
-    is_individual = Attribute(field_type=enums.FieldTypes.BOOLEAN)
+    is_individual = Attribute(field_type=types.FieldTypes.BOOLEAN)
     contact = Relationship('Contact')
     entity = Relationship('Entity')
 
@@ -228,53 +228,53 @@ class Contact:
 
     contact_group = Relationship('ContactGroup')
     entity = Relationship('Entity')
-    first_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    last_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    email = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    mobile_phone = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    work_phone = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    alternate_phone = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    title_position = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    first_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    last_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    email = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    mobile_phone = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    work_phone = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    alternate_phone = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    title_position = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     """Hidden Fields and or detail view"""
 
     personal_details_schema = {
-        'dob': Attribute(field_type=enums.FieldTypes.DATE),
-        'ssn': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
-        'country_of_citizenship': Attribute(field_type=enums.FieldTypes.ENUM_SINGLE),
-        'native_language': Attribute(field_type=enums.FieldTypes.ENUM_SINGLE),
-        'education': Attribute(field_type=enums.FieldTypes.ENUM_SINGLE),
+        'dob': Attribute(field_type=types.FieldTypes.DATE),
+        'ssn': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
+        'country_of_citizenship': Attribute(field_type=types.FieldTypes.ENUM_SINGLE),
+        'native_language': Attribute(field_type=types.FieldTypes.ENUM_SINGLE),
+        'education': Attribute(field_type=types.FieldTypes.ENUM_SINGLE),
     }
-    personal_details = Attribute(field_type=enums.FieldTypes.OBJECT, schema=personal_details_schema)
+    personal_details = Attribute(field_type=types.FieldTypes.OBJECT, schema=personal_details_schema)
 
     address_schema = {
-        'address_line_1': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
-        'address_line_2': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
-        'city_district': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
-        'state_province': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
-        'postal_code': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
+        'address_line_1': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
+        'address_line_2': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
+        'city_district': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
+        'state_province': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
+        'postal_code': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
     }
-    address = Attribute(field_type=enums.FieldTypes.OBJECT, schema=address_schema)
+    address = Attribute(field_type=types.FieldTypes.OBJECT, schema=address_schema)
 
     employment_schema = {
-        'employment': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
-        'current_employer': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
-        'time_with_current_employer': Attribute(field_type=enums.FieldTypes.SINGLE_LINE,
+        'employment': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
+        'current_employer': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
+        'time_with_current_employer': Attribute(field_type=types.FieldTypes.SINGLE_LINE,
                                                 label='Time with Current Employer'),
     }
-    employment = Attribute(field_type=enums.FieldTypes.OBJECT, schema=employment_schema)
+    employment = Attribute(field_type=types.FieldTypes.OBJECT, schema=employment_schema)
 
     criminal_history_schema = {
-        'criminal_history': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
-        'description': Attribute(field_type=enums.FieldTypes.MULTI_LINE),
+        'criminal_history': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
+        'description': Attribute(field_type=types.FieldTypes.MULTI_LINE),
     }
-    criminal_history = Attribute(field_type=enums.FieldTypes.OBJECT, schema=criminal_history_schema)
+    criminal_history = Attribute(field_type=types.FieldTypes.OBJECT, schema=criminal_history_schema)
 
     additional_info_schema = {
-        'family_support': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
-        'source_of_funds': Attribute(field_type=enums.FieldTypes.SINGLE_LINE, label='Source of Funds'),
-        'community_service': Attribute(field_type=enums.FieldTypes.SINGLE_LINE),
+        'family_support': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
+        'source_of_funds': Attribute(field_type=types.FieldTypes.SINGLE_LINE, label='Source of Funds'),
+        'community_service': Attribute(field_type=types.FieldTypes.SINGLE_LINE),
     }
-    additional_info = Attribute(field_type=enums.FieldTypes.OBJECT, schema=additional_info_schema)
+    additional_info = Attribute(field_type=types.FieldTypes.OBJECT, schema=additional_info_schema)
 
     @staticmethod
     def get_full_name(args):
@@ -285,92 +285,92 @@ class Contact:
 @model_type
 class ContactGroup:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class ContactRole:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class Entity:
     _title = 'name'
 
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     entity_type = Relationship('EntityType')
-    phone = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    email = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    address = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    website = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    phone = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    email = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    address = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    website = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     primary_contact = Relationship('Contact')
 
 
 @model_type
 class EntityType:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class Event:
     _title = 'activity'
 
-    start_time = Attribute(field_type=enums.FieldTypes.DATETIME)
-    end_time = Attribute(field_type=enums.FieldTypes.DATETIME)
+    start_time = Attribute(field_type=types.FieldTypes.DATETIME)
+    end_time = Attribute(field_type=types.FieldTypes.DATETIME)
     case = Relationship('Case')
     activity = Relationship('Activity')
     staff = Relationship('Staff', with_many=True)
     location = Relationship('Entity')
     department = Relationship('Contact')
-    client_attendance_required = Attribute(field_type=enums.FieldTypes.BOOLEAN)
+    client_attendance_required = Attribute(field_type=types.FieldTypes.BOOLEAN)
     """Hidden Fields and or detail view"""
-    no_case = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    notes = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
-    documents = Attribute(field_type=enums.FieldTypes.FILE_UPLOAD)
+    no_case = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    notes = Attribute(field_type=types.FieldTypes.MULTI_LINE)
+    documents = Attribute(field_type=types.FieldTypes.FILE_UPLOAD)
     contact = Relationship('Contact', with_many=True)
-    client_update = Attribute(field_type=enums.FieldTypes.BOOLEAN)
+    client_update = Attribute(field_type=types.FieldTypes.BOOLEAN)
 
 
 @model_type
 class Expense:
     _title = 'description'
 
-    date = Attribute(field_type=enums.FieldTypes.DATE)
+    date = Attribute(field_type=types.FieldTypes.DATE)
     activity = Relationship('Activity')
-    description = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
-    amount = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    quantity = Attribute(field_type=enums.FieldTypes.NUMBER)
-    total = Attribute(field_type=enums.FieldTypes.CURRENCY)
+    description = Attribute(field_type=types.FieldTypes.MULTI_LINE)
+    amount = Attribute(field_type=types.FieldTypes.CURRENCY)
+    quantity = Attribute(field_type=types.FieldTypes.NUMBER)
+    total = Attribute(field_type=types.FieldTypes.CURRENCY)
     staff = Relationship('Staff')
     case = Relationship('Case')
     invoice = Relationship('Invoice')
     """Hidden Fields and or detail view"""
-    billable = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    reduction = Attribute(field_type=enums.FieldTypes.NUMBER)
-    status = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    receipt_invoice = Attribute(field_type=enums.FieldTypes.FILE_UPLOAD)
+    billable = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    reduction = Attribute(field_type=types.FieldTypes.NUMBER)
+    status = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    receipt_invoice = Attribute(field_type=types.FieldTypes.FILE_UPLOAD)
 
 
 @model_type
 class FeeType:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class Invoice:
     _title = 'invoice_number'
 
-    invoice_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    invoice_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     case = Relationship('Case')
     bill_to = Relationship('Contact')
-    total = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    balance_due = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    status = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    total = Attribute(field_type=types.FieldTypes.CURRENCY)
+    balance_due = Attribute(field_type=types.FieldTypes.CURRENCY)
+    status = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     """Theses fields should be relational to the case and displayed on the invoice template"""
-    adjustments = Attribute(field_type=enums.FieldTypes.OBJECT)
+    adjustments = Attribute(field_type=types.FieldTypes.OBJECT)
 
 
 @model_type
@@ -380,28 +380,28 @@ class Lead:
     """We need Kanban style report for leads - I've separated the
   fields below based on a 'card view' and 'detail view' on kanban"""
     """Card View"""
-    case_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    retainer = Attribute(field_type=enums.FieldTypes.CURRENCY)
+    case_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    retainer = Attribute(field_type=types.FieldTypes.CURRENCY)
     """Detail View"""
-    lead_status = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    lead_status = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     intake_staff = Relationship('Staff', with_many=True)
     lead_source = Relationship('LeadSource')
     referred_by = Relationship('Contact', with_many=True)
     fee_type = Relationship('FeeType')
-    trial_included = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    retainer_hour_limit = Attribute(field_type=enums.FieldTypes.DECIMAL)
-    investigator_budget = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    record_seal_expungement_included = Attribute(field_type=enums.FieldTypes.BOOLEAN)
+    trial_included = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    retainer_hour_limit = Attribute(field_type=types.FieldTypes.DECIMAL)
+    investigator_budget = Attribute(field_type=types.FieldTypes.CURRENCY)
+    record_seal_expungement_included = Attribute(field_type=types.FieldTypes.BOOLEAN)
     practice_area = Relationship('PracticeArea')
     case_stage = Relationship('CaseStage')
     cause_of_action = Relationship('CauseOfAction', with_many=True)
-    statute_of_limitations = Attribute(field_type=enums.FieldTypes.DATE)
+    statute_of_limitations = Attribute(field_type=types.FieldTypes.DATE)
     court = Relationship('Entity')
-    department = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    case_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    incident_date = Attribute(field_type=enums.FieldTypes.DATE)
-    incident_location = Attribute(field_type=enums.FieldTypes.ADDRESS)
-    case_description = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
+    department = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    case_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    incident_date = Attribute(field_type=types.FieldTypes.DATE)
+    incident_location = Attribute(field_type=types.FieldTypes.ADDRESS)
+    case_description = Attribute(field_type=types.FieldTypes.MULTI_LINE)
     contacts = Relationship('Contact', with_many=True)
     # client_details = ... need to discuss
 
@@ -411,21 +411,21 @@ class LeadActivity:
     _title = 'activity'
 
     lead = Relationship('Lead')
-    activity = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    due_time = Attribute(field_type=enums.FieldTypes.DATETIME)
-    status = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    activity = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    due_time = Attribute(field_type=types.FieldTypes.DATETIME)
+    status = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class LeadSource:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class Ledger:
     _title = 'transaction_time'
-    transaction_time = Attribute(field_type=enums.FieldTypes.DATETIME)
+    transaction_time = Attribute(field_type=types.FieldTypes.DATETIME)
 
 
 @model_type
@@ -435,16 +435,16 @@ class Payment:
     case = Relationship('Case')
     invoice = Relationship('Invoice')
     bank_account = Relationship('BankAccount')
-    amount = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    payment_method = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    payment_time = Attribute(field_type=enums.FieldTypes.DATETIME)
-    status = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    amount = Attribute(field_type=types.FieldTypes.CURRENCY)
+    payment_method = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    payment_time = Attribute(field_type=types.FieldTypes.DATETIME)
+    status = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class PracticeArea:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
@@ -452,49 +452,49 @@ class Staff:
     _title = 'full_name'
 
     branch = Relationship('Branch')
-    first_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    last_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    first_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    last_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     staff_group = Relationship('StaffGroup')
-    pay_type = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    pay_rate = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    work_phone = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    extension = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    mileage_reimbursement = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    hire_date = Attribute(field_type=enums.FieldTypes.DATE)
-    leave_date = Attribute(field_type=enums.FieldTypes.DATE)
+    pay_type = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    pay_rate = Attribute(field_type=types.FieldTypes.CURRENCY)
+    work_phone = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    extension = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    mileage_reimbursement = Attribute(field_type=types.FieldTypes.CURRENCY)
+    hire_date = Attribute(field_type=types.FieldTypes.DATE)
+    leave_date = Attribute(field_type=types.FieldTypes.DATE)
     """Detail View"""
-    user_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    work_email = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    enable_overtime = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    overtime_rate = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    weekly_base_hours = Attribute(field_type=enums.FieldTypes.DECIMAL)
-    enable_break_time_deduction = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    break_time_hour_base = Attribute(field_type=enums.FieldTypes.DECIMAL)
-    break_time_rate = Attribute(field_type=enums.FieldTypes.DECIMAL)
-    enable_performance_incentives = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    intake_performance_incentive = Attribute(field_type=enums.FieldTypes.DECIMAL)
-    override_incentive = Attribute(field_type=enums.FieldTypes.DECIMAL)
-    manager_incentive = Attribute(field_type=enums.FieldTypes.DECIMAL)
-    referral_incentive = Attribute(field_type=enums.FieldTypes.DECIMAL)
-    employment_status = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    user_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    work_email = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    enable_overtime = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    overtime_rate = Attribute(field_type=types.FieldTypes.CURRENCY)
+    weekly_base_hours = Attribute(field_type=types.FieldTypes.DECIMAL)
+    enable_break_time_deduction = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    break_time_hour_base = Attribute(field_type=types.FieldTypes.DECIMAL)
+    break_time_rate = Attribute(field_type=types.FieldTypes.DECIMAL)
+    enable_performance_incentives = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    intake_performance_incentive = Attribute(field_type=types.FieldTypes.DECIMAL)
+    override_incentive = Attribute(field_type=types.FieldTypes.DECIMAL)
+    manager_incentive = Attribute(field_type=types.FieldTypes.DECIMAL)
+    referral_incentive = Attribute(field_type=types.FieldTypes.DECIMAL)
+    employment_status = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     manager = Relationship('Staff')
-    bar_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    bar_state = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    bar_admission = Attribute(field_type=enums.FieldTypes.DATE)
-    date_of_birth = Attribute(field_type=enums.FieldTypes.DATE)
-    personal_phone = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    personal_email = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    personal_address = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
-    personal_ssn = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    personal_gender = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    personal_race = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    bank_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    bank_routing_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    bank_account_number = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    emergency_contact_name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    emergency_contact_phone = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    emergency_contact_email = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    emergency_contact_address = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    bar_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    bar_state = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    bar_admission = Attribute(field_type=types.FieldTypes.DATE)
+    date_of_birth = Attribute(field_type=types.FieldTypes.DATE)
+    personal_phone = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    personal_email = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    personal_address = Attribute(field_type=types.FieldTypes.MULTI_LINE)
+    personal_ssn = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    personal_gender = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    personal_race = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    bank_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    bank_routing_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    bank_account_number = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    emergency_contact_name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    emergency_contact_phone = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    emergency_contact_email = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    emergency_contact_address = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
     @staticmethod
     def get_full_name(args):
@@ -506,13 +506,13 @@ class Staff:
 @model_type
 class StaffGroup:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
 class StaffPayType:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
@@ -521,31 +521,31 @@ class Task:
 
     case = Relationship('Case')
     activity = Relationship('Activity')
-    due_date = Attribute(field_type=enums.FieldTypes.DATE)
-    priority = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    due_date = Attribute(field_type=types.FieldTypes.DATE)
+    priority = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
     assigned_staff = Relationship('Staff', with_many=True)
-    notes = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
+    notes = Attribute(field_type=types.FieldTypes.MULTI_LINE)
     """Detail View"""
-    documents = Attribute(field_type=enums.FieldTypes.FILE_UPLOAD)
+    documents = Attribute(field_type=types.FieldTypes.FILE_UPLOAD)
 
 
 @model_type
 class TimeEntry:
     _title = 'activity'
 
-    date = Attribute(field_type=enums.FieldTypes.DATE)
+    date = Attribute(field_type=types.FieldTypes.DATE)
     activity = Relationship('Activity')
-    duration = Attribute(field_type=enums.FieldTypes.DECIMAL)
-    description = Attribute(field_type=enums.FieldTypes.MULTI_LINE)
-    rate = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    total = Attribute(field_type=enums.FieldTypes.CURRENCY)
+    duration = Attribute(field_type=types.FieldTypes.DECIMAL)
+    description = Attribute(field_type=types.FieldTypes.MULTI_LINE)
+    rate = Attribute(field_type=types.FieldTypes.CURRENCY)
+    total = Attribute(field_type=types.FieldTypes.CURRENCY)
     staff = Relationship('Staff')
     case = Relationship('Case')
     invoice = Relationship('Invoice')
     """Detail View"""
-    billable = Attribute(field_type=enums.FieldTypes.BOOLEAN)
-    rate_type = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
-    status = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    billable = Attribute(field_type=types.FieldTypes.BOOLEAN)
+    rate_type = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
+    status = Attribute(field_type=types.FieldTypes.SINGLE_LINE)
 
 
 @model_type
@@ -553,11 +553,11 @@ class Timesheet:
     _title = 'staff'
 
     staff = Relationship('Staff')
-    clock_in_time = Attribute(field_type=enums.FieldTypes.DATETIME)
-    clock_out_time = Attribute(field_type=enums.FieldTypes.DATETIME)
-    hours_worked = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    earned_pay = Attribute(field_type=enums.FieldTypes.CURRENCY)
-    approved = Attribute(field_type=enums.FieldTypes.BOOLEAN)
+    clock_in_time = Attribute(field_type=types.FieldTypes.DATETIME)
+    clock_out_time = Attribute(field_type=types.FieldTypes.DATETIME)
+    hours_worked = Attribute(field_type=types.FieldTypes.CURRENCY)
+    earned_pay = Attribute(field_type=types.FieldTypes.CURRENCY)
+    approved = Attribute(field_type=types.FieldTypes.BOOLEAN)
     """Detail View"""
     approved_by = Relationship('Staff')
     """Need to add Payroll class at some point"""
@@ -567,4 +567,4 @@ class Timesheet:
 @model_type
 class TypeOfAction:
     _title = 'name'
-    name = Attribute(field_type=enums.FieldTypes.SINGLE_LINE)
+    name = Attribute(field_type=types.FieldTypes.SINGLE_LINE)

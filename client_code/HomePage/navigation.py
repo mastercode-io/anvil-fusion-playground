@@ -1,17 +1,14 @@
 # Application navigation
-from anvil import *
-import anvil.server
-import anvil.js
+import anvil
 from anvil.js.window import jQuery, ej
 import sys
 import time
 
-from ... import app
-from ...app.constants import *
-from ...orm_client.model import *
-from ... import Views
-from ... import Forms
-from ... import Pages
+from .. import app_client
+from ..app_client.model import *
+from .. import Views
+from .. import Forms
+from .. import Pages
 
 # Sidebar control CSS
 PMAPP_SIDEBAR_CSS = 'e-inherit e-caret-hide pm-sidebar-menu'

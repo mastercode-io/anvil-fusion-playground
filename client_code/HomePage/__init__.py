@@ -6,6 +6,7 @@ import navigation as nav
 from .. import app_client
 from .. import Forms
 from .. import Views
+from .. import Pages
 
 
 class HomePage(HomePageTemplate):
