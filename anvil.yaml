@@ -1,7 +1,7 @@
 scheduled_tasks: []
 dependencies:
 - dep_id: dep_q6wtkjrlrnlb7
-  version: {dev: false}
+  version: {dev: true}
   resolution_hints: {app_id: RKPNSNWS3GPPJAO7, name: AnvilFusion, package_name: AnvilFusion}
 services:
 - source: /runtime/services/tables.yml
