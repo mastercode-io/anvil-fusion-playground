@@ -10,6 +10,9 @@ from .. import Views
 from .. import Forms
 from .. import Pages
 
+from AnvilFusion.syncfusion.components.GridView import GridView
+from AnvilFusion.syncfusion.components.BaseForm import BaseForm
+
 # Sidebar control CSS
 PMAPP_SIDEBAR_CSS = 'e-inherit e-caret-hide pm-sidebar-menu'
 PMAPP_SIDEBAR_WIDTH = 200
@@ -289,31 +292,31 @@ class Sidebar:
         nav_container_id = self.content_id if self.nav_target_id is None else self.nav_target_id
         if component['type'] == 'custom':
             try:
-                view_class = getattr(sys.modules[f"{APP_NAME}.Views"], component['class'])
+                view_class = getattr(Views, component['class'])
                 self.content_control = view_class(container_id=nav_container_id)
             except Exception as e:
                 print(e)
 
         if component['type'] == 'view':
             if 'config' in component:
-                self.content_control = Views.BaseGridView(view_name=component['config'], container_id=nav_container_id)
-            elif hasattr(sys.modules[f"{APP_NAME}.Views"], f"{component['model']}View"):
-                view_class = getattr(sys.modules[f"{APP_NAME}.Views"], f"{component['model']}View")
+                self.content_control = GridView(view_name=component['config'], container_id=nav_container_id)
+            elif hasattr(Views, f"{component['model']}View"):
+                view_class = getattr(Views, f"{component['model']}View")
                 self.content_control = view_class(container_id=nav_container_id)
             else:
-                self.content_control = Views.BaseGridView(model=component['model'], container_id=nav_container_id)
+                self.content_control = GridView(model=component['model'], container_id=nav_container_id)
 
         elif component['type'] == 'form':
             try:
-                form_class = getattr(sys.modules[f"{APP_NAME}.Forms"], f"{component['model']}Form")
+                form_class = getattr(Forms, f"{component['model']}Form")
                 self.content_control = form_class(target=nav_container_id)
             except Exception as e:
                 print(e.args)
-                self.content_control = Forms.BaseForm(model=component['model'], target=nav_container_id)
+                self.content_control = BaseForm(model=component['model'], target=nav_container_id)
 
         elif component['type'] == 'page':
             try:
-                page_class = getattr(sys.modules[f"{APP_NAME}.Pages"], f"{component['model']}Page")
+                page_class = getattr(Pages, f"{component['model']}Page")
                 self.content_control = page_class(container_id=nav_container_id)
             except Exception as e:
                 print(e.args)
