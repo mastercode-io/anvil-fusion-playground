@@ -2,9 +2,7 @@ import anvil.server
 import anvil.js
 from anvil.js.window import ej, jQuery
 
-from .. import app
-from ..app.constants import *
-from ..orm_client.model import *
+from ..app_client.model import *
 from ..Views import *
 from .. import Forms
 
