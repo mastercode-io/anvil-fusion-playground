@@ -18,7 +18,7 @@ class HomePage(HomePageTemplate):
         DepManager.add_dependency('app_views', Views)
         DepManager.add_dependency('app_pages', Pages)
       
-        app.session.init_user_session()
+        # app_client.client_session.init_user_session()
 
         self.content_id = 'pm-content'
         self.content_control = None
