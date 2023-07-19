@@ -8,9 +8,16 @@ from .. import Forms
 from .. import Views
 from .. import Pages
 
+from AnvilFusion.depmanager import DepManager
+
 
 class HomePage(HomePageTemplate):
     def __init__(self, **properties):
+        DepManager.add_dependency('app_model', app_client.model)
+        DepManager.add_dependency('app_forms', Forms)
+        DepManager.add_dependency('app_views', Views)
+        DepManager.add_dependency('app_pages', Pages)
+      
         app.session.init_user_session()
 
         self.content_id = 'pm-content'
