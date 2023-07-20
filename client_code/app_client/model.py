@@ -1,9 +1,7 @@
 from AnvilFusion.orm_client.particles import model_type, Attribute, Relationship, Computed
 from AnvilFusion.orm_client import types
 
-
-MODULE_PATH = __file__
-
+print('AFP', __name__)
 
 # --------------------------------
 # Application object model classes

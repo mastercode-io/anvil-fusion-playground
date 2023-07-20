@@ -1,5 +1,5 @@
-from AnvilFsuin.ssyncfusion.components.BaseForm import *
-from AnvilFsuin.ssyncfusion.components.BaseInput import *
+from AnvilFusion.syncfusion.components.BaseForm import BaseForm
+from AnvilFusion.syncfusion.components.BaseInput import *
 
 
 class BankAccountForm(BaseForm):
