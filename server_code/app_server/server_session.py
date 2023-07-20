@@ -6,6 +6,7 @@ from AnvilFusion.orm_server import persistance
 
 @anvil.server.callable
 def add_server_dependencies():
+    anvil.server.session['model_module'] = model.__name__
     ServerDependencies.add_dependency('model', model)
     print('app server', persistance.APP_DATA_MODEL)
     persistance.APP_DATA_MODEL = model
