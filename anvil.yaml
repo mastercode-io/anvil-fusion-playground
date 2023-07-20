@@ -18,7 +18,7 @@ services:
   client_config: {}
   server_config: {}
 startup: {type: form, module: HomePage}
-package_name: practiceMANAGER_SF
+package_name: AnvilFusion_Playground
 allow_embedding: false
 name: AnvilFusion Playground
 runtime_options:
