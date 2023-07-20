@@ -1,11 +1,13 @@
 import anvil.server
 from ..app_client import model
-from AnvilFusion.app_server import server_session
+from AnvilFusion.app_server.server_dependencies import ServerDependencies
 
 
 @anvil.server.callable
-def add_app_dependencies():
-    dependencies = {
-        'app_model': model,
-    }
-    anvil.server.session['dependecies'] = dependencies
+def add_server_dependencies():
+    ServerDependencies.add_dependency('model', model)
+
+
+@anvil.server.callable
+def get_server_dependencies():
+    ServerDependencies.get_dependencies()

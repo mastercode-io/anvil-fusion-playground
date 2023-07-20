@@ -8,16 +8,18 @@ from .. import Forms
 from .. import Views
 from .. import Pages
 
-from AnvilFusion.depmanager import DepManager
+from AnvilFusion.app_client.client_dependencies import ClientDependencies
 
 
 class HomePage(HomePageTemplate):
     def __init__(self, **properties):
-        DepManager.add_dependency('app_model', app_client.model)
-        DepManager.add_dependency('app_forms', Forms)
-        DepManager.add_dependency('app_views', Views)
-        DepManager.add_dependency('app_pages', Pages)
-        anvil.server.call('add_app_dependencies')
+        ClientDependencies.add_dependency('model', app_client.model)
+        ClientDependencies.add_dependency('forms', Forms)
+        ClientDependencies.add_dependency('views', Views)
+        ClientDependencies.add_dependency('pages', Pages)
+        anvil.server.call('add_server_dependencies')
+        print(ClientDependencies.get_dependencies())
+        print(anvil.server.call('get_server_dependencies'))
       
         # app_client.client_session.init_user_session()
 
