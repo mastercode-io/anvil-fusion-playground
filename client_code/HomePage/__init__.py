@@ -17,6 +17,7 @@ class HomePage(HomePageTemplate):
         DepManager.add_dependency('app_forms', Forms)
         DepManager.add_dependency('app_views', Views)
         DepManager.add_dependency('app_pages', Pages)
+        anvil.server.call('add_app_dependencies')
       
         # app_client.client_session.init_user_session()
 

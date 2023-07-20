@@ -2,9 +2,6 @@ from AnvilFusion.orm_client.particles import model_type, Attribute, Relationship
 from AnvilFusion.orm_client import types
 
 
-MODULE_PATH = __file__
-
-
 # --------------------------------
 # Application object model classes
 # --------------------------------
