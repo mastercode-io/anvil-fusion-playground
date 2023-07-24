@@ -33,8 +33,7 @@ unique_ids:
     app_client.enumerations: QFCRA57LGFNGW7XDKKSLMZC3F4OPG3W4
     app_client.client_session: '1671648277957198774968912.82843'
   server_modules:
-    app_server: '1671541782310731936045546.5121'
-    app_server.server_session: '1689685024147531882196115.3165'
+    dependency: '169020855362624760672415.40214'
   assets:
     case-dashboard-page.css: '1676744721062768784610375.0447'
     data-adaptor.json: '1676078793140897820711848.9384'

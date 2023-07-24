@@ -4,4 +4,4 @@ from ..app_client import model
 
 @anvil.server.callable
 def add_server_dependencies():
-    anvil.server.session['app_data_model'] = model.__name__
+    anvil.server.session['dependency']['data_models'] = model.__name__

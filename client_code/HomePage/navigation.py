@@ -1,3 +1,4 @@
+import anvil.server
 # Application navigation
 import anvil
 from anvil.js.window import jQuery, ej

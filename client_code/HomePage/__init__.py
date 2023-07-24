@@ -1,3 +1,4 @@
+import anvil.server
 from ._anvil_designer import HomePageTemplate
 import anvil
 from anvil.js.window import jQuery, ej
