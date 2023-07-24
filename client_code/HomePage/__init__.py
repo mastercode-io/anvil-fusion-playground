@@ -14,7 +14,7 @@ from AnvilFusion.app_client.depmanager import DepManager
 
 class HomePage(HomePageTemplate):
     def __init__(self, **properties):
-        DepManager.add_dependency('model', app_client.model)
+        DepManager.add_dependency('data_models', app_client.model)
         DepManager.add_dependency('forms', Forms)
         DepManager.add_dependency('views', Views)
         DepManager.add_dependency('pages', Pages)
