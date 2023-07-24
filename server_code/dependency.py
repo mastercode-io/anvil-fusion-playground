@@ -1,7 +1,7 @@
 import anvil.server
-from ..app_client import model
+from ..app_client import models
 
 
 @anvil.server.callable
-def add_server_dependencies():
+def add_dependency():
     anvil.server.session['dependency']['data_models'] = model.__name__
