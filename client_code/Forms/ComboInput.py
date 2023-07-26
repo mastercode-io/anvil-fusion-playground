@@ -1,6 +1,6 @@
 import anvil.server
 from .BaseInput import *
-from .BaseForm import BaseForm
+from .FormBase import FormBase
 from ..orm_client import model as orm_model
 from ..orm_client import particles as orm
 from ..orm_client.particles import DotDict
@@ -57,7 +57,7 @@ class ComboInput(FormInput):
             if len(section_cols[-1]) < rows_num:
                 section_cols[-1] += [None] * (rows_num - len(section_cols[-1]))
             self.sections = [{'name': self.name, 'label': section_label, 'cols': section_cols}]
-        self.html, _ = BaseForm.sections_content(self.sections)
+        self.html, _ = FormBase.sections_content(self.sections)
 
     @property
     def enabled(self):

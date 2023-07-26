@@ -1,12 +1,12 @@
 import anvil.server
 from ..orm_client.model import Contact, ContactGroup, Entity
 from .. import Forms
-from .BaseForm import BaseForm, POPUP_WIDTH_COL3
+from .FormBase import FormBase, POPUP_WIDTH_COL3
 from .BaseInput import *
 from .ComboInput import ComboInput
 
 
-class ContactForm(BaseForm):
+class ContactForm(FormBase):
 
     def __init__(self, **kwargs):
         print('ContactForm')
@@ -14,7 +14,7 @@ class ContactForm(BaseForm):
         self.last_name = TextInput(name='last_name', label='Last Name', save=False)
         self.contact_group = LookupInput(model='ContactGroup', name='contact_group', label='Contact Group',
                                          add_item_label='Add Group', add_item_model='ContactGroup',
-                                         add_item_form=BaseForm)
+                                         add_item_form=FormBase)
         self.entity = LookupInput(name='entity', label='Entity', model='Entity', text_field='name',
                                   add_item_label='Add Entity', add_item_form=Forms.EntityForm)
         self.email = TextInput(name='email', label='Email')

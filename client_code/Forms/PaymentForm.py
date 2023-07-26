@@ -1,6 +1,6 @@
 import anvil.server
 from ..orm_client.model import *
-from .BaseForm import BaseForm, POPUP_WIDTH_COL2
+from .FormBase import FormBase, POPUP_WIDTH_COL2
 from .BaseInput import *
 
 # payment method options
@@ -28,7 +28,7 @@ PAYMENT_STATUS_OPTIONS = [
 ]
 
 
-class PaymentForm(BaseForm):
+class PaymentForm(FormBase):
     def __init__(self, **kwargs):
         print('PaymentForm')
         self.case = LookupInput(name='case', label='Case', model='Case', text_field='case_name')

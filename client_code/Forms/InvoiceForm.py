@@ -1,5 +1,5 @@
 import anvil.server
-from .BaseForm import BaseForm, BaseSubform
+from .FormBase import FormBase, SubformBase
 from .BaseInput import *
 from .ExpenseForm import *
 from .PaymentForm import *
@@ -20,7 +20,7 @@ INVOICE_STATUS_OPTIONS = [
 ]
 
 
-class InvoiceForm(BaseForm):
+class InvoiceForm(FormBase):
     def __init__(self, **kwargs):
         print('InvoiceForm')
         self.invoice_number = NumberInput(name='invoice_number', label='Invoice Number')
@@ -37,7 +37,7 @@ class InvoiceForm(BaseForm):
             TextInput(name='payment_method', label='Payment Method'),
             TextInput(name='status', label='Status', select='single')
         ]
-        self.payments = BaseSubform(name='payments', fields=payment_fields, model='Payment', link_model='Invoice',
+        self.payments = SubformBase(name='payments', fields=payment_fields, model='Payment', link_model='Invoice',
                                     link_field='invoice', save=False)
 
         time_entry_fields = [
@@ -52,7 +52,7 @@ class InvoiceForm(BaseForm):
             NumberInput(name='duration', label='Duration (hours)'),
             NumberInput(name='total', label='Total')
         ]
-        self.time_entries = BaseSubform(name='time_entries', fields=time_entry_fields, model='TimeEntry',
+        self.time_entries = SubformBase(name='time_entries', fields=time_entry_fields, model='TimeEntry',
                                         link_model='Invoice', link_field='invoice', save=False)
 
         expense_fields = [
@@ -67,7 +67,7 @@ class InvoiceForm(BaseForm):
             CheckboxInput(name='billable', label='Billable'),
             DropdownInput(name='status', label='Status', select='single', options=EXPENSE_STATUS_OPTIONS)
         ]
-        self.expenses = BaseSubform(name='expenses', fields=expense_fields, model='Expense', link_model='Invoice',
+        self.expenses = SubformBase(name='expenses', fields=expense_fields, model='Expense', link_model='Invoice',
                                     link_field='invoice', save=False)
 
         adjustment_fields = [
@@ -79,7 +79,7 @@ class InvoiceForm(BaseForm):
             NumberInput(name='adjustment_amount', label='Adjustment $'),
             NumberInput(name='adjustment_percent', label='Adjustment %'),
         ]
-        self.adjustments = BaseSubform(name='adjustments', fields=adjustment_fields)
+        self.adjustments = SubformBase(name='adjustments', fields=adjustment_fields)
 
         sections = [
             {'name': '_', 'rows': [

@@ -1,5 +1,5 @@
 import anvil.server
-# from AnvilFusion.syncfusion.components.BaseForm import BaseForm
+# from AnvilFusion.syncfusion.components.FormBase import FormBase
 # from AnvilFusion.syncfusion.components.BaseInput import *
 # from AnvilFusion.syncfusion.components.ComboInput import ComboInput
 

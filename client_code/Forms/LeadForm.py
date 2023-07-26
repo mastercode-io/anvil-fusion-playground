@@ -1,6 +1,6 @@
 import anvil.server
 from .. import Forms
-from .BaseForm import BaseForm, BaseSubform, POPUP_WIDTH_COL3
+from .FormBase import FormBase, SubformBase, POPUP_WIDTH_COL3
 from .BaseInput import *
 from ..orm_client.model import *
 
@@ -8,7 +8,7 @@ FEE_TYPE_RETAINER = ('Flat Fee', 'Hourly', 'Hybrid Flat/Hourly', 'Hybrid Flat/Co
 FEE_TYPE_LITIGATION = ('Contingency', 'Hybrid Flat/Contingency', 'Hybrid Hourly/Contingency')
 
 
-class LeadForm(BaseForm):
+class LeadForm(FormBase):
 
     def __init__(self, **kwargs):
 
@@ -18,7 +18,7 @@ class LeadForm(BaseForm):
             TextInput(name='status', label='Status'),
             CheckboxInput(name='completed', label='Completed', save=False),
         ]
-        self.schedule_activity = BaseSubform(name='lead_activity', fields=schedule_activity_fields,
+        self.schedule_activity = SubformBase(name='lead_activity', fields=schedule_activity_fields,
                                              model='LeadActivity', link_model='Lead', link_field='lead', save=False)
 
         self.lead_source = LookupInput(model='LeadSource', name='lead_source', label='Lead Source',

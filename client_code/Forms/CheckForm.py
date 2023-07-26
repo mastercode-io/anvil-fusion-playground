@@ -1,10 +1,10 @@
 import anvil.server
-from .BaseForm import BaseForm, POPUP_WIDTH_COL1
+from .FormBase import FormBase, POPUP_WIDTH_COL1
 from .BaseInput import *
 from ..orm_client.model import Contact, BankAccount
 
 
-class CheckForm(BaseForm):
+class CheckForm(FormBase):
     def __init__(self, **kwargs):
         print('CheckForm')
         self.check_number = TextInput(name='check_number', label='Check Number')

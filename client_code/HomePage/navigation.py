@@ -12,7 +12,7 @@ from .. import Forms
 from .. import Pages
 
 from AnvilFusion.syncfusion.components.GridView import GridView
-from AnvilFusion.syncfusion.components.BaseForm import BaseForm
+from AnvilFusion.syncfusion.components.FormBase import FormBase
 
 # Sidebar control CSS
 PMAPP_SIDEBAR_CSS = 'e-inherit e-caret-hide pm-sidebar-menu'
@@ -313,7 +313,7 @@ class Sidebar:
                 self.content_control = form_class(target=nav_container_id)
             except Exception as e:
                 print(e.args)
-                self.content_control = BaseForm(model=component['model'], target=nav_container_id)
+                self.content_control = FormBase(model=component['model'], target=nav_container_id)
 
         elif component['type'] == 'page':
             try:
@@ -321,7 +321,7 @@ class Sidebar:
                 self.content_control = page_class(container_id=nav_container_id)
             except Exception as e:
                 print(e.args)
-                # self.content_control = Pages.BaseForm(model=component['model'], target=self.content_id)
+                # self.content_control = Pages.FormBase(model=component['model'], target=self.content_id)
 
         if hasattr(self.content_control, 'target_id'):
             self.nav_target_id = self.content_control.target_id

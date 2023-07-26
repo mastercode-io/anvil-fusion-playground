@@ -1,12 +1,12 @@
 import anvil.server
 from ..orm_client.model import *
 from .. import Forms
-from .BaseForm import BaseForm, POPUP_WIDTH_COL3
+from .FormBase import FormBase, POPUP_WIDTH_COL3
 from .BaseInput import *
 from datetime import datetime, timedelta
 
 
-class EventForm(BaseForm):
+class EventForm(FormBase):
 
     def __init__(self, **kwargs):
 

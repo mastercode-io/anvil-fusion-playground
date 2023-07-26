@@ -1,9 +1,9 @@
 import anvil.server
-from AnvilFusion.syncfusion.components.BaseForm import BaseForm
+from AnvilFusion.syncfusion.components.FormBase import FormBase
 from AnvilFusion.syncfusion.components.BaseInput import *
 
 
-class BankAccountForm(BaseForm):
+class BankAccountForm(FormBase):
     def __init__(self, **kwargs):
         print('BankAccountForm')
         self.account_type = LookupInput(model='BankAccountType', name='account_type', label='Type', select='single')

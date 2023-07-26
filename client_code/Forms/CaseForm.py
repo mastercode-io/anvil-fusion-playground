@@ -1,6 +1,6 @@
 import anvil.server
 from .. import Forms
-from .BaseForm import *
+from .FormBase import *
 from .BaseInput import *
 from .ContactForm import *
 
@@ -8,7 +8,7 @@ FEE_TYPE_RETAINER = ('Flat Fee', 'Hourly', 'Hybrid Flat/Hourly', 'Hybrid Flat/Co
 FEE_TYPE_LITIGATION = ('Contingency', 'Hybrid Flat/Contingency', 'Hybrid Hourly/Contingency')
 
 
-class CaseForm(BaseForm):
+class CaseForm(FormBase):
 
     def __init__(self, **kwargs):
 

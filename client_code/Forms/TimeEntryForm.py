@@ -1,5 +1,5 @@
 import anvil.server
-from .BaseForm import *
+from .FormBase import *
 from .BaseInput import *
 from ..app import constants
 from ..orm_client.model import Case, Staff
@@ -7,7 +7,7 @@ from ..orm_client.model import Case, Staff
 from datetime import datetime, date
 
 
-class TimeEntryForm(BaseForm):
+class TimeEntryForm(FormBase):
 
     def __init__(self, **kwargs):
 
