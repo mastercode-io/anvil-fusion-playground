@@ -1,3 +1,4 @@
+import anvil.server
 from ._anvil_designer import HomePageTemplate
 import anvil
 from anvil.js.window import jQuery, ej
@@ -8,18 +9,17 @@ from .. import Forms
 from .. import Views
 from .. import Pages
 
-from AnvilFusion.app_client.client_dependencies import ClientDependencies
+from AnvilFusion.app_client.depmanager import DepManager
 
 
 class HomePage(HomePageTemplate):
     def __init__(self, **properties):
-        ClientDependencies.add_dependency('model', app_client.model)
-        ClientDependencies.add_dependency('forms', Forms)
-        ClientDependencies.add_dependency('views', Views)
-        ClientDependencies.add_dependency('pages', Pages)
-        anvil.server.call('add_server_dependencies')
-        print(ClientDependencies.get_dependencies())
-        print(anvil.server.call('get_server_dependencies'))
+        DepManager.add_dependency('data_models', app_client.models)
+        DepManager.add_dependency('app_id', 'anvilfusion_playground')
+        DepManager.add_dependency('forms', Forms)
+        DepManager.add_dependency('views', Views)
+        DepManager.add_dependency('pages', Pages)
+        anvil.server.call('add_dependency')
       
         # app_client.client_session.init_user_session()
 

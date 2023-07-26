@@ -1,3 +1,4 @@
+import anvil.server
 
 MODEL_MODULE_NAME = 'practiceMANAGER_SF.orm_client.model'
 
